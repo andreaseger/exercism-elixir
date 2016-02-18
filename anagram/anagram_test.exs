@@ -5,7 +5,7 @@ else
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+ExUnit.configure trace: true
 
 defmodule AnagramTest do
   use ExUnit.Case
