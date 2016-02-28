@@ -1,11 +1,13 @@
 defmodule Grains do
+  use Bitwise
+
   @doc """
   Calculate two to the power of the input minus one.
   """
   @spec square(pos_integer) :: pos_integer
   def square(1), do: 1
   def square(number) do
-    square(number-1) * 2
+    1 <<< (number-1)
   end
 
   @doc """
@@ -13,6 +15,6 @@ defmodule Grains do
   """
   @spec total :: pos_integer
   def total do
-    Enum.reduce(1..64, 0, fn(e,acc) -> acc + square(e) end)
+    (1 <<< 64) -1
   end
 end
