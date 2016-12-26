@@ -10,6 +10,16 @@ defmodule Raindrops do
   """
   @spec convert(pos_integer) :: String.t
   def convert(number) do
-
+    str = fact(number,3) <> fact(number,5) <> fact(number,7)
+    if String.length(str) == 0 do
+      Integer.to_string(number)
+    else
+      str
+    end
   end
+
+  defp fact(number,3) when rem(number, 3) == 0, do: "Pling"
+  defp fact(number,5) when rem(number, 5) == 0, do: "Plang"
+  defp fact(number,7) when rem(number, 7) == 0, do: "Plong"
+  defp fact(_,_), do: ""
 end
